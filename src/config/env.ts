@@ -22,9 +22,6 @@ export class Environment {
   @IsNotEmpty()
   jwt_secret: string;
 
-  @IsNumber()
-  page_size: number;
-
   @IsNotEmpty()
   token_ttl: string;
 
@@ -50,16 +47,7 @@ export class Environment {
   google_mail_sender: string;
 
   @IsNotEmpty()
-  stripe_secret_key: string;
-
-  @IsNotEmpty()
   google_app_key: string;
-
-  @IsNotEmpty()
-  stripe_signingkey: string;
-
-  @IsNotEmpty()
-  api_url: string;
 
   @IsNotEmpty()
   session_ttl: string;
