@@ -14,7 +14,6 @@ import { LoggerMiddleware } from './http/middlewares';
 import { LoggerService, RedisStore, configureRedisUrl } from './common';
 import { GoogleStrategy } from './modules/auth/strategies/google.strategy';
 
-
 const logger = new LoggerService();
 const redisConnection = configureRedisUrl(env.redis_url);
 

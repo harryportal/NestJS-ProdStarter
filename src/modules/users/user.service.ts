@@ -39,7 +39,6 @@ export class UserService {
     return await this.repository.updateUser({ id }, { firstName, lastName });
   }
 
-  
   /**
    * Confirms if the password user provided is correct and update it to the new password
    * @param data - old and new password

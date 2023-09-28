@@ -42,7 +42,7 @@ export class UserRepository {
   ) {
     return this.prisma.user.update({
       where,
-      data
+      data,
     });
   }
 

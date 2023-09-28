@@ -1,9 +1,6 @@
 import request from 'supertest';
 import { Test, TestingModule } from '@nestjs/testing';
-import {
-  INestApplication,
-  HttpStatus
-} from '@nestjs/common';
+import { INestApplication, HttpStatus } from '@nestjs/common';
 import { AppModule } from '../../src/app.module';
 import {
   signInResponse,

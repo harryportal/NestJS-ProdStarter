@@ -126,7 +126,7 @@ export class AuthService {
       email: user.email,
       firstName: user.firstName,
       lastName: user.lastName,
-      verified
+      verified,
     };
     await this.cache.set(user.id, session, env.session_ttl);
     return session;

@@ -30,6 +30,6 @@ export const signInResponse = {
     firstName: expect.any(String),
     lastName: expect.any(String),
     email: expect.any(String),
-    verified: expect.any(Boolean)
+    verified: expect.any(Boolean),
   },
 };
