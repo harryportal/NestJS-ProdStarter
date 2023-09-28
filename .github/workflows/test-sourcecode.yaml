@@ -1,0 +1,79 @@
+name: Dash CI
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/gaas?schema=public
+      PORT: 8000
+      NODE_ENV: test
+      JWT_SECRET: testing
+      REDIS_URL: http://localhost:6379
+      PAGE_SIZE: 10
+      TOKEN_TTL: 24hr
+      ACESSTOKEN_TTL: 10d
+      REFRESHTOKEN_TTL: 30d
+      SESSION_TTL: 1y
+      FRONTENDURL: http://localhost:3000
+      API_URL: http://localhost:3000/api/v1
+      CLIENT_SECRET: testing
+      CLOUDINARY_FOLDER_NAME: testing
+      GOOGLE_CLIENTID: testing
+      GOOGLE_CLIENTSECRET: testing
+      GOOGLE_MAIL_SENDER: testing@email.com
+      GOOGLE_APP_KEY: testing
+      STRIPE_SECRET_KEY: testing
+      STRIPE_SIGNINGKEY: testing
+      AIRTABLE_APIKEY: testing
+      AIRTABLE_BASE: testing
+      AIRTABLE_TABLE: testing
+
+    # Set up Postgres and Redis Containers
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        # Health checks to wait until postgres has started
+        options: 
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+      
+      redis:
+        image: redis
+        # Health checks to wait until redis has started
+        options:
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
+        
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: set up NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
+
+      - name: Install Dependecies
+        run: yarn 
+
+      - name: Run Migrations 
+        run: yarn migrate:dev
+      
+      - name: Run e2e tests
+        run: yarn test:e2e
+          
