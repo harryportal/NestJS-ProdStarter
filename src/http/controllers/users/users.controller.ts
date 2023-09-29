@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { UserService } from '../../../modules/users';
 import { HttpController, SkipVerification, User } from '../../../common';
-import { AddProfileDto, ResetPasswordDto, UpdateProfileDto } from './users.dto';
+import { ResetPasswordDto } from './users.dto';
 import { AuthGuard } from '../../../http/guards';
 
 @Controller('user')
@@ -24,12 +24,6 @@ export class UserController extends HttpController {
   async getProfile(@User('id') id: string) {
     const profile = await this.service.getProfile(id);
     return this.send(profile);
-  }
-
-  @Patch('profile')
-  async updateProfile(@User('id') id: string, @Body() body: UpdateProfileDto) {
-    const updatedProfile = await this.service.updateProfile(body, id);
-    return this.send(updatedProfile);
   }
 
   @Put('password')

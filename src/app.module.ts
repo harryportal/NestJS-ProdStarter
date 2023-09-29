@@ -9,7 +9,6 @@ import { env, PrismaService } from './config';
 import { UserRepository, UserService } from './modules/users';
 import { AuthService } from './modules/auth';
 import MailService from './modules/mail/mail.service';
-import { StripeProvider } from './providers';
 import { LoggerMiddleware } from './http/middlewares';
 import { LoggerService, RedisStore, configureRedisUrl } from './common';
 import { GoogleStrategy } from './modules/auth/strategies/google.strategy';
@@ -30,7 +29,6 @@ const redisConnection = configureRedisUrl(env.redis_url);
     AuthService,
     QueueService,
     MailService,
-    StripeProvider,
     GoogleStrategy,
     LoggerService,
     PrismaService,

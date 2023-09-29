@@ -1,5 +1,3 @@
-import { UserwithProfile } from '../users';
-
 export interface jwtPayload {
   id: string;
   email: string;

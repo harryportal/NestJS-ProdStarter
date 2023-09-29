@@ -5,12 +5,7 @@ import {
   ConflictException,
   UnauthorizedException,
 } from '@nestjs/common';
-import {
-  IAddProfile,
-  IResetPassword,
-  IUpdateProfile,
-  UserRepository,
-} from './';
+import { IResetPassword, UserRepository } from './';
 import * as bcrypt from 'bcrypt';
 import { RedisStore } from '../../common';
 
@@ -27,16 +22,6 @@ export class UserService {
   async getProfile(id: string) {
     const userProfile = await this.repository.getUser({ id });
     return userProfile;
-  }
-
-  /**
-   * Update the profile for a user
-   * @param data - profile data
-   * @param id - user's id
-   */
-  async updateProfile(data: IUpdateProfile, id: string) {
-    const { firstName, lastName } = data;
-    return await this.repository.updateUser({ id }, { firstName, lastName });
   }
 
   /**

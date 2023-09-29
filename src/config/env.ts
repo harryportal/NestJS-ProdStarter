@@ -26,6 +26,9 @@ export class Environment {
   token_ttl: string;
 
   @IsNotEmpty()
+  api_url: string;
+
+  @IsNotEmpty()
   acesstoken_ttl: string;
 
   @IsNotEmpty()

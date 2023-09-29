@@ -1,7 +1,7 @@
-name: Dash CI
+name: Master CI
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build:
@@ -19,7 +19,6 @@ jobs:
       FRONTENDURL: http://localhost:3000
       API_URL: http://localhost:3000/api/v1
       CLIENT_SECRET: testing
-      CLOUDINARY_FOLDER_NAME: testing
       GOOGLE_CLIENTID: testing
       GOOGLE_CLIENTSECRET: testing
       GOOGLE_MAIL_SENDER: testing@email.com
