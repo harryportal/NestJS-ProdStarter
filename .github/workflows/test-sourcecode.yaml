@@ -7,12 +7,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/gaas?schema=public
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test?schema=public
       PORT: 8000
       NODE_ENV: test
       JWT_SECRET: testing
       REDIS_URL: http://localhost:6379
-      PAGE_SIZE: 10
       TOKEN_TTL: 24hr
       ACESSTOKEN_TTL: 10d
       REFRESHTOKEN_TTL: 30d
@@ -25,11 +24,6 @@ jobs:
       GOOGLE_CLIENTSECRET: testing
       GOOGLE_MAIL_SENDER: testing@email.com
       GOOGLE_APP_KEY: testing
-      STRIPE_SECRET_KEY: testing
-      STRIPE_SIGNINGKEY: testing
-      AIRTABLE_APIKEY: testing
-      AIRTABLE_BASE: testing
-      AIRTABLE_TABLE: testing
 
     # Set up Postgres and Redis Containers
     services:
