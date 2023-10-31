@@ -32,17 +32,33 @@
 $ yarn install
 ```
 
+## Set up Env Variables
+```bash
+$ touch .env
+$ cp .env.sample .env
+```
+
+## To set up Postgres and Redis with Docker
+```bash
+$ docker-compose up -d postgres redis
+```
+
+## To run Migrations
+```bash
+$ yarn migrate:dev
+```
+
 ## Running the app
 
 ```bash
 # development
-$ yarn run start
+$ yarn start
 
 # watch mode
-$ yarn run start:dev
+$ yarn start:dev
 
 # production mode
-$ yarn run start:prod
+$ yarn start:prod
 ```
 
 ## Test
