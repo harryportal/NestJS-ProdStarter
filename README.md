@@ -24,7 +24,12 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Built my version of [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository to help you build a production ready NestJs backend server without worrying about boiler plate for features like:
+- Logging
+- Caching
+- Google Ouath Integration
+- Docker
+- Integration Testing
 
 ## Installation
 
